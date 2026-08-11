@@ -237,6 +237,14 @@ export default function Home() {
               </motion.span>
             </span>
           </Link>
+          <Link
+            to="/wishes"
+            className="group px-10 py-5 rounded-full border-2 border-warm-gold text-cream font-heading text-xl font-bold transition-all hover:-translate-y-1 hover:bg-warm-gold hover:text-charcoal-dark hover:shadow-xl hover:shadow-warm-gold/20"
+          >
+            <span className="flex items-center gap-2">
+              Make a Wish <span aria-hidden="true">💌</span>
+            </span>
+          </Link>
         </motion.div>
       </div>
     </motion.div>
