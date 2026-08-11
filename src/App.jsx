@@ -9,7 +9,7 @@ import { SparkleCursor, ClickConfettiManager, Fireworks } from './components/Dec
 import Home from './pages/Home';
 import Gallery from './pages/Gallery';
 import Wishes from './pages/Wishes';
-import RSVP from './pages/RSVP';
+
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -24,7 +24,7 @@ function AnimatedRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/wishes" element={<Wishes />} />
-        <Route path="/rsvp" element={<RSVP />} />
+
         <Route path="*" element={<Home />} />
       </Routes>
     </AnimatePresence>

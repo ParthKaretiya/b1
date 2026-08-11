@@ -8,7 +8,6 @@ const navLinks = [
   { name: 'Home', path: '/', emoji: '🏠' },
   { name: 'Gallery', path: '/gallery', emoji: '📸' },
   { name: 'Wishes', path: '/wishes', emoji: '💌' },
-  { name: 'RSVP', path: '/rsvp', emoji: '🎟️' },
 ];
 
 export default function Navbar() {
