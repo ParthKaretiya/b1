@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, Send, Sparkles, MessageCircleHeart, Users } from 'lucide-react';
 import {
@@ -18,6 +19,7 @@ import {
 } from 'firebase/firestore';
 
 export default function Wishes() {
+  const location = useLocation();
   const [wishes, setWishes] = useState([]);
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
@@ -39,6 +41,17 @@ export default function Wishes() {
     });
     return () => unsubscribe();
   }, []);
+
+  useEffect(() => {
+    if (location.hash !== '#make-a-wish') return;
+
+    const focusForm = window.setTimeout(() => {
+      document.getElementById('make-a-wish')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      document.getElementById('wish-name')?.focus();
+    }, 300);
+
+    return () => window.clearTimeout(focusForm);
+  }, [location.hash]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -122,7 +135,7 @@ export default function Wishes() {
             transition={{ delay: 0.15, duration: 0.6 }}
             className="md:col-span-5"
           >
-            <div className="glass-card p-6 md:p-8 rounded-3xl relative overflow-hidden border border-warm-gold/20">
+            <div id="make-a-wish" className="glass-card p-6 md:p-8 rounded-3xl relative overflow-hidden border border-warm-gold/20">
               {/* floating sparkles */}
               <div className="absolute -top-3 -right-3 text-4xl animate-bounce" style={{ animationDuration: '3s' }}>
                 🎉
@@ -144,6 +157,7 @@ export default function Wishes() {
                     Your Name
                   </label>
                   <input
+                    id="wish-name"
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}

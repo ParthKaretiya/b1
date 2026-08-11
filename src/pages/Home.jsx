@@ -238,7 +238,7 @@ export default function Home() {
             </span>
           </Link>
           <Link
-            to="/wishes"
+            to="/wishes#make-a-wish"
             className="group px-10 py-5 rounded-full border-2 border-warm-gold text-cream font-heading text-xl font-bold transition-all hover:-translate-y-1 hover:bg-warm-gold hover:text-charcoal-dark hover:shadow-xl hover:shadow-warm-gold/20"
           >
             <span className="flex items-center gap-2">
